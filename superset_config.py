@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 from redis import Redis
-
+from typing import Any, Callable, Iterator, Literal, Optional, TYPE_CHECKING, TypedDict
 # ============================================================================
 # 1. БАЗОВАЯ КОНФИГУРАЦИЯ И СЕКРЕТЫ (ОБЯЗАТЕЛЬНО ИЗМЕНИТЬ)
 # ============================================================================
@@ -13,7 +13,7 @@ from redis import Redis
 
 
 # Генерация SECRET_KEY: выполните в терминале `openssl rand -base64 42`
-SECRET_KEY = 'dgTcwpATtv6Fd2WvFnfsZyKRI8Eq1XFOv3bwVzzCQO+03So7SOBm55vC'  # ЗАМЕНИТЕ НА РЕАЛЬНЫЙ КЛЮЧ!
+SECRET_KEY = 'JUYsD1IwepRGHeK6fyYSMmGZDUVgQKpd2ATzlGawYvFwVlp5JqGcYKa/'  # ЗАМЕНИТЕ НА РЕАЛЬНЫЙ КЛЮЧ!
 
 # Отключаем режим отладки ВСЕГДА в production
 DEBUG = False
@@ -23,7 +23,7 @@ ENABLE_CORS = False
 # 2. ПОДКЛЮЧЕНИЕ К БАЗЕ ДАННЫХ МЕТАДАННЫХ (PostgreSQL)
 # ============================================================================
 # Формат: postgresql+psycopg2://user:password@host:port/dbname
-SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@localhost:5432/superset'
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://superset:superset@localhost:5432/superset'
 
 # Настройки пула соединений для повышения производительности 
 SQLALCHEMY_ENGINE_OPTIONS = {
@@ -164,3 +164,110 @@ LOG_LEVEL = 'INFO'
 LOG_FORMAT = '%(asctime)s:%(levelname)s:%(name)s:%(message)s'
 LOG_TO_FILE = True
 LOG_FILE_PATH = '/var/log/superset/superset.log' # Убедитесь, что директория существует и доступна для записи
+
+# ---------------------------------------------------
+# Babel config for translations
+# ---------------------------------------------------
+# Setup default language
+BABEL_DEFAULT_LOCALE = "ru"
+# Your application default translation path
+BABEL_DEFAULT_FOLDER = "superset/translations"
+# The allowed translation for your app
+LANGUAGES = {
+    "en": {"flag": "us", "name": "English"},
+ #   "es": {"flag": "es", "name": "Spanish"},
+ #   "it": {"flag": "it", "name": "Italian"},
+ #   "fr": {"flag": "fr", "name": "French"},
+ #   "zh": {"flag": "cn", "name": "Chinese"},
+ #   "zh_TW": {"flag": "tw", "name": "Traditional Chinese"},
+ #   "ja": {"flag": "jp", "name": "Japanese"},
+ #   "de": {"flag": "de", "name": "German"},
+ #   "pl": {"flag": "pl", "name": "Polish"},
+ #   "pt": {"flag": "pt", "name": "Portuguese"},
+ #   "pt_BR": {"flag": "br", "name": "Brazilian Portuguese"},
+    "ru": {"flag": "ru", "name": "Russian"},
+ #   "ko": {"flag": "kr", "name": "Korean"},
+ #   "sk": {"flag": "sk", "name": "Slovak"},
+ #   "sl": {"flag": "si", "name": "Slovenian"},
+ #   "nl": {"flag": "nl", "name": "Dutch"},
+ #   "uk": {"flag": "uk", "name": "Ukranian"},
+ #   "mi": {"flag": "nz", "name": "Māori"},
+}
+# Turning off i18n by default as translation in most languages are
+# incomplete and not well maintained.
+#LANGUAGES = {}
+
+
+# Override the default d3 locale format
+# Default values are equivalent to
+# D3_FORMAT = {
+#     "decimal": ".",           # - decimal place string (e.g., ".").
+#     "thousands": ",",         # - group separator string (e.g., ",").
+#     "grouping": [3],          # - array of group sizes (e.g., [3]), cycled as needed.
+#     "currency": ["$", ""]     # - currency prefix/suffix strings (e.g., ["$", ""])
+# }
+# https://github.com/d3/d3-format/blob/main/README.md#formatLocale
+class D3Format(TypedDict, total=False):
+    decimal: str
+    thousands: str
+    grouping: list[int]
+    currency: list[str]
+
+
+D3_FORMAT: D3Format = {}
+
+# Override the default mapbox tiles
+# Default values are equivalent to
+# DECKGL_BASE_MAP = [
+#   ['https://tile.openstreetmap.org/{z}/{x}/{y}.png', 'Streets (OSM)'],
+#   ['https://tile.osm.ch/osm-swiss-style/{z}/{x}/{y}.png', 'Topography (OSM)'],
+#   ['mapbox://styles/mapbox/streets-v9', 'Streets'],
+#   ['mapbox://styles/mapbox/dark-v9', 'Dark'],
+#   ['mapbox://styles/mapbox/light-v9', 'Light'],
+#   ['mapbox://styles/mapbox/satellite-streets-v9', 'Satellite Streets'],
+#   ['mapbox://styles/mapbox/satellite-v9', 'Satellite'],
+#   ['mapbox://styles/mapbox/outdoors-v9', 'Outdoors'],
+# ]
+# for adding your own map tiles, you can use the following format:
+# - tile:// + your_personal_url or openstreetmap_url
+#   example:
+#   DECKGL_BASE_MAP = [
+#       ['tile://https://c.tile.openstreetmap.org/{z}/{x}/{y}.png', 'OpenStreetMap']
+#    ]
+# Enable CORS and set map url in origins option.
+# Add also map url in connect-src of TALISMAN_CONFIG variable
+DECKGL_BASE_MAP: list[list[str, str]] = None
+
+
+# Override the default d3 locale for time format
+# Default values are equivalent to
+# D3_TIME_FORMAT = {
+#     "dateTime": "%x, %X",
+#     "date": "%-m/%-d/%Y",
+#     "time": "%-I:%M:%S %p",
+#     "periods": ["AM", "PM"],
+#     "days": ["Sunday", "Monday", "Tuesday", "Wednesday",
+#              "Thursday", "Friday", "Saturday"],
+#     "shortDays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+#     "months": ["January", "February", "March", "April",
+#                "May", "June", "July", "August",
+#                "September", "October", "November", "December"],
+#     "shortMonths": ["Jan", "Feb", "Mar", "Apr",
+#                     "May", "Jun", "Jul", "Aug",
+#                     "Sep", "Oct", "Nov", "Dec"]
+# }
+# https://github.com/d3/d3-time-format/tree/main#locales
+class D3TimeFormat(TypedDict, total=False):
+    date: str
+    dateTime: str
+    time: str
+    periods: list[str]
+    days: list[str]
+    shortDays: list[str]
+    months: list[str]
+    shortMonths: list[str]
+
+
+D3_TIME_FORMAT: D3TimeFormat = {}
+
+CURRENCIES = ["USD", "EUR", "GBP", "INR", "MXN", "JPY", "CNY"]
