@@ -23,5 +23,3 @@ capture_output = True
 loglevel = "info"
 
 # User/Group (должны совпадать с пользователем, от которого запускается сервис)
-user = "user"
-group = "user"

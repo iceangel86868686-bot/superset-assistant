@@ -166,7 +166,7 @@ greenlet==3.1.1
     #   apache-superset (pyproject.toml)
     #   shillelagh
     #   sqlalchemy
-gunicorn==23.0.0
+gunicorn==24.0.0
     # via apache-superset (pyproject.toml)
 h11==0.16.0
     # via wsproto
@@ -483,6 +483,7 @@ wtforms==3.2.1
     #   flask-wtf
     #   wtforms-json
 wtforms-json==0.3.5
+wheel0.47.0
     # via apache-superset (pyproject.toml)
 xlrd==2.0.1
     # via pandas
@@ -492,3 +493,6 @@ xlsxwriter==3.0.9
     #   pandas
 zstandard==0.23.0
     # via flask-compress
+psycopg2-binary==2.9.12
+wheel==0.47.0
+gevent==24.10.1
