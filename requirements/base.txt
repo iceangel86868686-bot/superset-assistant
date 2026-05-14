@@ -483,7 +483,6 @@ wtforms==3.2.1
     #   flask-wtf
     #   wtforms-json
 wtforms-json==0.3.5
-wheel0.47.0
     # via apache-superset (pyproject.toml)
 xlrd==2.0.1
     # via pandas
