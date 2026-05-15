@@ -13,7 +13,7 @@ from typing import Any, Callable, Iterator, Literal, Optional, TYPE_CHECKING, Ty
 
 
 # Генерация SECRET_KEY: выполните в терминале `openssl rand -base64 42`
-SECRET_KEY = 'JUYsD1IwepRGHeK6fyYSMmGZDUVgQKpd2ATzlGawYvFwVlp5JqGcYKa/'  # ЗАМЕНИТЕ НА РЕАЛЬНЫЙ КЛЮЧ!
+SECRET_KEY = 'odRFEE+vijEPupaYNAyO6+nOxfUplxQUEYYR4fHHrGAYx6+7mkq9xQ+h'  # ЗАМЕНИТЕ НА РЕАЛЬНЫЙ КЛЮЧ!
 
 # Отключаем режим отладки ВСЕГДА в production
 DEBUG = False
@@ -271,3 +271,20 @@ class D3TimeFormat(TypedDict, total=False):
 D3_TIME_FORMAT: D3TimeFormat = {}
 
 CURRENCIES = ["USD", "EUR", "GBP", "INR", "MXN", "JPY", "CNY"]
+
+# ============================================================================
+# ШРИФИТ
+# ============================================================================
+
+THEME_DEFAULT = {
+    "token": {
+        "fontFamily": "Manrope",
+    }
+}
+
+THEME_DARK = {
+    "algorithm": "dark",  
+    "token": {
+        "fontFamily": "Manrope",
+    }
+}

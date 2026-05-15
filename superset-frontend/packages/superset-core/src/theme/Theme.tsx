@@ -19,6 +19,7 @@
 /* eslint-disable react-prefer-function-component/react-prefer-function-component */
 // eslint-disable-next-line no-restricted-syntax
 import React from 'react';
+import '/home/superset/superset-assistant/static/assets/fonts/custom-fonts.css';
 import { theme as antdThemeImport, ConfigProvider } from 'antd';
 import {
   ThemeProvider,
