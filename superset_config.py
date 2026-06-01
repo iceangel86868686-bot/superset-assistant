@@ -2,6 +2,8 @@ import os
 from datetime import timedelta
 from redis import Redis
 from typing import Any, Callable, Iterator, Literal, Optional, TYPE_CHECKING, TypedDict
+from flask_caching.backends.rediscache import RedisCache
+
 # ============================================================================
 # 1. БАЗОВАЯ КОНФИГУРАЦИЯ И СЕКРЕТЫ (ОБЯЗАТЕЛЬНО ИЗМЕНИТЬ)
 # ============================================================================
@@ -64,16 +66,14 @@ CACHE_CONFIG = {
 DATA_CACHE_CONFIG = CACHE_CONFIG
 
 # Бэкенд для хранения результатов асинхронных запросов 
-RESULTS_BACKEND = {
-    #  указывает, что для кэширования используется Redis.
-    'CACHE_TYPE': 'RedisCache',
-    # Формируется на основе ранее заданных переменных
-    'CACHE_REDIS_URL': f'redis://:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/{REDIS_RESULTS_DB}',
-    'CACHE_DEFAULT_TIMEOUT': 86400, # 24 часа
-    #  префикс ключей для результатов запросов.
-    'CACHE_KEY_PREFIX': 'superset_results'
-
-}
+RESULTS_BACKEND = RedisCache(
+    host=REDIS_HOST,
+    port=REDIS_PORT,
+    password=REDIS_PASSWORD,
+    db=REDIS_RESULTS_DB,  # Явно указываем базу данных (у вас это 1)
+    key_prefix='superset_results',
+    default_timeout=86400
+)
 
 # ============================================================================
 # 4. CELERY ДЛЯ АСИНХРОННЫХ ЗАДАЧ И ALERTS 
