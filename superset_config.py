@@ -73,7 +73,10 @@ RESULTS_BACKEND = RedisCache(
     key_prefix='superset_results',
     default_timeout=86400
 )
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
 # ============================================================================
 # 4. CELERY ДЛЯ АСИНХРОННЫХ ЗАДАЧ И ALERTS 
 # ============================================================================
@@ -301,6 +304,3 @@ THEME_DARK = {
 # ============================================================================
 FAVICONS = [{"href": "/static/assets/images/LogoPR_32х32.png"}]
 APP_ICON = "/static/assets/images/logo300x100.png"
-
-
-ENABLE_TEMPLATE_PROCESSING = True
