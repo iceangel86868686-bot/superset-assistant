@@ -21,7 +21,8 @@
     },
     "menu": {
       "css": [
-        "/static/assets/7765.23617893c65124d46da7.entry.css"
+        "/static/assets/7765.23617893c65124d46da7.entry.css",
+        "/static/assets/menu.a4a8f5d3ab2b6cd9a67c.entry.css"
       ],
       "js": [
         "/static/assets/vendors.e513ff77f7099919e634.entry.js",
@@ -29,15 +30,16 @@
         "/static/assets/1203.c728758ead98876159e6.entry.js",
         "/static/assets/7765.23617893c65124d46da7.entry.js",
         "/static/assets/8100.09cc4807a36cfe5856a7.entry.js",
-        "/static/assets/3966.a00a70368f7b8505e6d8.entry.js",
+        "/static/assets/3966.df782fb3c3726060b260.entry.js",
         "/static/assets/8994.cf48268b597273622965.entry.js",
         "/static/assets/3264.ce1db9e35832bf344b7d.entry.js",
-        "/static/assets/menu.c365a630c92129cef370.entry.js"
+        "/static/assets/menu.a4a8f5d3ab2b6cd9a67c.entry.js"
       ]
     },
     "spa": {
       "css": [
-        "/static/assets/7765.23617893c65124d46da7.entry.css"
+        "/static/assets/7765.23617893c65124d46da7.entry.css",
+        "/static/assets/spa.5ceef24d0c3481331974.entry.css"
       ],
       "js": [
         "/static/assets/vendors.e513ff77f7099919e634.entry.js",
@@ -51,19 +53,20 @@
         "/static/assets/2290.2a8a1dfc2219317c3924.entry.js",
         "/static/assets/7634.8c285656553c308e679f.entry.js",
         "/static/assets/8100.09cc4807a36cfe5856a7.entry.js",
-        "/static/assets/3966.a00a70368f7b8505e6d8.entry.js",
+        "/static/assets/3966.df782fb3c3726060b260.entry.js",
         "/static/assets/4873.eefe550260ae19da39f0.entry.js",
         "/static/assets/5711.e90b22a6cfe9e4595a04.entry.js",
         "/static/assets/8994.cf48268b597273622965.entry.js",
         "/static/assets/2173.5af8bcc280d03c773969.entry.js",
         "/static/assets/3264.ce1db9e35832bf344b7d.entry.js",
         "/static/assets/1582.7a66ccbde0fb2c5278b3.entry.js",
-        "/static/assets/spa.5f941b7c7c2476d5a5eb.entry.js"
+        "/static/assets/spa.5ceef24d0c3481331974.entry.js"
       ]
     },
     "embedded": {
       "css": [
-        "/static/assets/7765.23617893c65124d46da7.entry.css"
+        "/static/assets/7765.23617893c65124d46da7.entry.css",
+        "/static/assets/embedded.7494fe663172d48d53b9.entry.css"
       ],
       "js": [
         "/static/assets/vendors.e513ff77f7099919e634.entry.js",
@@ -76,12 +79,12 @@
         "/static/assets/1541.ca7bdea4d579c66e3f83.entry.js",
         "/static/assets/2290.2a8a1dfc2219317c3924.entry.js",
         "/static/assets/8100.09cc4807a36cfe5856a7.entry.js",
-        "/static/assets/3966.a00a70368f7b8505e6d8.entry.js",
+        "/static/assets/3966.df782fb3c3726060b260.entry.js",
         "/static/assets/4873.eefe550260ae19da39f0.entry.js",
         "/static/assets/5711.e90b22a6cfe9e4595a04.entry.js",
         "/static/assets/878.eb793ec09def77addca3.entry.js",
         "/static/assets/2173.5af8bcc280d03c773969.entry.js",
-        "/static/assets/embedded.3a9f3efe246f6eda89fc.entry.js"
+        "/static/assets/embedded.7494fe663172d48d53b9.entry.js"
       ]
     },
     "service-worker": {

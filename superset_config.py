@@ -3,7 +3,6 @@ from datetime import timedelta
 from redis import Redis
 from typing import Any, Callable, Iterator, Literal, Optional, TYPE_CHECKING, TypedDict
 from flask_caching.backends.rediscache import RedisCache
-
 # ============================================================================
 # 1. БАЗОВАЯ КОНФИГУРАЦИЯ И СЕКРЕТЫ (ОБЯЗАТЕЛЬНО ИЗМЕНИТЬ)
 # ============================================================================
@@ -168,8 +167,17 @@ LOG_FILE_PATH = '/var/log/superset/superset.log' # Убедитесь, что д
 # ---------------------------------------------------
 # Babel config for translations
 # ---------------------------------------------------
+from superset.translations.utils import get_language_pack
+
+def bootstrap_overrides(bootstrap_data):
+ bootstrap_data["locale"] = "ru"
+ bootstrap_data["language_pack"] = get_language_pack("ru")
+ return bootstrap_data
+
+COMMON_BOOTSTRAP_OVERRIDES_FUNC = bootstrap_overrides
 # Setup default language
 BABEL_DEFAULT_LOCALE = "ru"
+DEFAULT_LOCALE = 'ru'
 # Your application default translation path
 BABEL_DEFAULT_FOLDER = "superset/translations"
 # The allowed translation for your app
@@ -288,3 +296,11 @@ THEME_DARK = {
         "fontFamily": "Manrope",
     }
 }
+# ============================================================================
+# Логотип
+# ============================================================================
+FAVICONS = [{"href": "/static/assets/images/LogoPR_32х32.png"}]
+APP_ICON = "/static/assets/images/logo300x100.png"
+
+
+ENABLE_TEMPLATE_PROCESSING = True

@@ -20,3 +20,7 @@
  * Stub for the untyped jed module.
  */
 declare module 'jed';
+/**
+ * Allow importing CSS files as side-effect imports (e.g., for @font-face declarations).
+ */
+declare module '*.css';

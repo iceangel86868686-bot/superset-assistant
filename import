@@ -1,0 +1,11 @@
+SQLite version 3.50.4 2025-07-30 19:33:53
+Enter ".help" for usage hints.
+Connected to a [1mtransient in-memory database[0m.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> >     print('SQLite available, version:', sqlite3.sqlite_version)
+   ...> > except ImportError as e:
+   ...> >     print('Error:', e)
+   ...> > "
+"  ...> Python version: 3.11.15 (main, Apr 19 2026, 18:12:09) [GCC 10.3.1 20210703 (ALT Sisyphus 10.3.1-alt2)]
+"  ...> Error: No module named 'sqlite3'
+"  ...> ^C^C

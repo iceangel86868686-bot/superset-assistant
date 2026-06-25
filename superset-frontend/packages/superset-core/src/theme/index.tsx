@@ -60,7 +60,12 @@ export function useTheme() {
 
 const styled: CreateStyled = emotionStyled;
 
-const themeObject: Theme = Theme.fromConfig();
+const themeObject: Theme = Theme.fromConfig({
+  token: {
+    fontFamily: "'Manrope', sans-serif",
+    fontFamilyCode: "'IBM Plex Mono', 'Fira Code', monospace",
+  },
+});
 
 const { theme } = themeObject;
 const supersetTheme = theme;
