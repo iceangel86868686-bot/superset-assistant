@@ -1,0 +1,258 @@
+.react-checkbox-tree {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 16px;
+}
+.react-checkbox-tree > ol {
+  flex: 1 1 auto;
+}
+.react-checkbox-tree ol {
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.react-checkbox-tree ol ol {
+  padding-left: 24px;
+}
+.react-checkbox-tree button:focus,
+.react-checkbox-tree input:focus {
+  outline: 2px solid rgba(51, 51, 204, 0.5);
+  border-radius: 2px;
+}
+.react-checkbox-tree button:not(:focus-visible),
+.react-checkbox-tree input:not(:focus-visible) {
+  outline: none;
+}
+.react-checkbox-tree button {
+  line-height: normal;
+  color: inherit;
+}
+.react-checkbox-tree button:disabled {
+  cursor: not-allowed;
+}
+.react-checkbox-tree button:focus {
+  outline-offset: -2px;
+}
+.react-checkbox-tree .rct-bare-label {
+  cursor: default;
+}
+.react-checkbox-tree label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.react-checkbox-tree label:hover {
+  background: rgba(51, 51, 204, 0.1);
+}
+.react-checkbox-tree label:active, .react-checkbox-tree label:focus {
+  background: rgba(51, 51, 204, 0.15);
+}
+.react-checkbox-tree input {
+  margin: 0 5px;
+  cursor: pointer;
+}
+.react-checkbox-tree input:focus {
+  outline-offset: 2px;
+}
+.react-checkbox-tree:not(.rct-native-display) input {
+  position: absolute;
+  opacity: 0;
+}
+.react-checkbox-tree:not(.rct-native-display) input:focus + .rct-checkbox {
+  outline: 2px solid rgba(51, 51, 204, 0.5);
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+.react-checkbox-tree:not(.rct-native-display) input:focus:not(:focus-visible) + .rct-checkbox {
+  outline: none;
+}
+.react-checkbox-tree .rct-icon {
+  display: inline-block;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: center;
+  text-rendering: auto;
+}
+
+.rct-disabled > .rct-text > label {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+.rct-disabled > .rct-text > label:hover {
+  background: transparent;
+}
+.rct-disabled > .rct-text > label:active {
+  background: transparent;
+}
+
+.rct-text {
+  display: flex;
+  align-items: center;
+}
+
+.rct-actions {
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+  text-align: right;
+}
+
+.rct-action {
+  padding: 0 4px;
+  font-size: 18px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  opacity: 0.75;
+}
+.rct-action:hover {
+  opacity: 1;
+}
+
+.rct-collapse,
+.rct-checkbox,
+.rct-node-icon {
+  padding: 0 5px;
+}
+.rct-collapse *,
+.rct-checkbox *,
+.rct-node-icon * {
+  display: inline-block;
+  width: 14px;
+  margin: 0;
+}
+
+.rct-collapse {
+  align-self: stretch;
+  font-size: 12px;
+  line-height: normal;
+  color: inherit;
+  background: none;
+  border: 0;
+}
+.rct-collapse.rct-collapse-btn {
+  cursor: pointer;
+}
+.rct-collapse > .rct-icon-expand-close {
+  opacity: 0.5;
+}
+.rct-collapse > .rct-icon-expand-close:hover {
+  opacity: 1;
+}
+
+.rct-native-display .rct-checkbox {
+  display: none;
+}
+
+.rct-node-clickable {
+  cursor: pointer;
+}
+.rct-node-clickable:hover {
+  background: rgba(51, 51, 204, 0.1);
+}
+.rct-node-clickable:focus {
+  outline: 0;
+  background: rgba(51, 51, 204, 0.2);
+}
+
+.rct-node-icon {
+  color: #33c;
+}
+
+.rct-label {
+  padding: 0 5px;
+}
+
+.rct-icons-fa4 .rct-icon-expand-close::before {
+  content: "\f054";
+}
+.rct-icons-fa4 .rct-icon-expand-open::before {
+  content: "\f078";
+}
+.rct-icons-fa4 .rct-icon-uncheck::before {
+  content: "\f096";
+}
+.rct-icons-fa4 .rct-icon-check::before {
+  content: "\f046";
+}
+.rct-icons-fa4 .rct-icon-half-check::before {
+  content: "\f046";
+  opacity: 0.5;
+}
+.rct-icons-fa4 .rct-icon-leaf::before {
+  content: "\f016";
+}
+.rct-icons-fa4 .rct-icon-parent-open::before {
+  content: "\f115";
+}
+.rct-icons-fa4 .rct-icon-parent-close::before {
+  content: "\f114";
+}
+.rct-icons-fa4 .rct-icon-expand-all::before {
+  content: "\f0fe";
+}
+.rct-icons-fa4 .rct-icon-collapse-all::before {
+  content: "\f146";
+}
+
+.rct-icons-fa5 .rct-icon-expand-close::before,
+.rct-icons-fa6 .rct-icon-expand-close::before {
+  font-weight: 900;
+  content: "\f054";
+}
+.rct-icons-fa5 .rct-icon-expand-open::before,
+.rct-icons-fa6 .rct-icon-expand-open::before {
+  font-weight: 900;
+  content: "\f078";
+}
+.rct-icons-fa5 .rct-icon-uncheck::before,
+.rct-icons-fa6 .rct-icon-uncheck::before {
+  content: "\f0c8";
+}
+.rct-icons-fa5 .rct-icon-check::before,
+.rct-icons-fa6 .rct-icon-check::before {
+  content: "\f14a";
+}
+.rct-icons-fa5 .rct-icon-half-check::before,
+.rct-icons-fa6 .rct-icon-half-check::before {
+  content: "\f14a";
+  opacity: 0.5;
+}
+.rct-icons-fa5 .rct-icon-leaf::before,
+.rct-icons-fa6 .rct-icon-leaf::before {
+  content: "\f15b";
+}
+.rct-icons-fa5 .rct-icon-parent-open::before,
+.rct-icons-fa6 .rct-icon-parent-open::before {
+  content: "\f07c";
+}
+.rct-icons-fa5 .rct-icon-parent-close::before,
+.rct-icons-fa6 .rct-icon-parent-close::before {
+  content: "\f07b";
+}
+.rct-icons-fa5 .rct-icon-expand-all::before,
+.rct-icons-fa6 .rct-icon-expand-all::before {
+  content: "\f0fe";
+}
+.rct-icons-fa5 .rct-icon-collapse-all::before,
+.rct-icons-fa6 .rct-icon-collapse-all::before {
+  content: "\f146";
+}
+
+.rct-direction-rtl {
+  direction: rtl;
+}
+.rct-direction-rtl ol ol {
+  padding-right: 24px;
+  padding-left: 0;
+}
+.rct-direction-rtl.rct-icons-fa4 .rct-icon-expand-close::before {
+  content: "\f105";
+}
+.rct-direction-rtl.rct-icons-fa5 .rct-icon-expand-close::before {
+  content: "\f053";
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9zY3NzL3JlYWN0LWNoZWNrYm94LXRyZWUuc2NzcyIsInJlYWN0LWNoZWNrYm94LXRyZWUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWFBO0VBQ0UsYUFBQTtFQUNBLDJCQUFBO0VBQ0EsZUFBQTtBQ1pGO0FEY0U7RUFDRSxjQUFBO0FDWko7QURlRTtFQUNFLGVBQUE7RUFDQSxTQUFBO0VBQ0EscUJBQUE7QUNiSjtBRGVJO0VBQ0Usa0JBQUE7QUNiTjtBRG1CSTs7RUFDRSx5Q0FBQTtFQUNBLGtCQTNCZTtBQ1dyQjtBRG1CSTs7RUFDRSxhQUFBO0FDaEJOO0FEb0JFO0VBQ0UsbUJBQUE7RUFDQSxjQUFBO0FDbEJKO0FEb0JJO0VBQ0UsbUJBQUE7QUNsQk47QURxQkk7RUFDRSxvQkExQ2U7QUN1QnJCO0FEdUJFO0VBQ0UsZUFBQTtBQ3JCSjtBRHdCRTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtBQ3RCSjtBRHdCSTtFQUNFLGtDQWpFWTtBQzJDbEI7QUR5Qkk7RUFFRSxtQ0FyRWE7QUM2Q25CO0FENEJFO0VBQ0UsYUFBQTtFQUNBLGVBQUE7QUMxQko7QUQ0Qkk7RUFDRSxtQkEzRXdCO0FDaUQ5QjtBRDhCRTtFQUVFLGtCQUFBO0VBQ0EsVUFBQTtBQzdCSjtBRGlDTTtFQUNFLHlDQUFBO0VBQ0Esb0JBcEZhO0VBcUZiLGtCQXZGYTtBQ3dEckI7QURrQ007RUFDRSxhQUFBO0FDaENSO0FEcUNFO0VBQ0UscUJBQUE7RUFDQSxvRkExR0Y7RUEyR0Usa0JBQUE7RUFDQSxtQkFBQTtFQUNBLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxvQkFBQTtBQ25DSjs7QUR1Q0E7RUFDRSxtQkFBQTtFQUNBLGFBQUE7QUNwQ0Y7QURzQ0U7RUFDRSx1QkFBQTtBQ3BDSjtBRHVDRTtFQUNFLHVCQUFBO0FDckNKOztBRHlDQTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtBQ3RDRjs7QUR5Q0E7RUFDRSxjQUFBO0VBQ0EsbUJBQUE7RUFDQSxpQkFBQTtBQ3RDRjs7QUR5Q0E7RUFDRSxjQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLFNBQUE7RUFDQSxhQUFBO0FDdENGO0FEd0NFO0VBQ0UsVUFBQTtBQ3RDSjs7QUQwQ0E7OztFQUdFLGNBQUE7QUN2Q0Y7QUR5Q0U7OztFQUNFLHFCQUFBO0VBQ0EsV0FBQTtFQUNBLFNBQUE7QUNyQ0o7O0FEeUNBO0VBQ0UsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsZ0JBQUE7RUFDQSxTQUFBO0FDdENGO0FEd0NFO0VBQ0UsZUFBQTtBQ3RDSjtBRHlDRTtFQUNFLFlBQUE7QUN2Q0o7QUR5Q0k7RUFDRSxVQUFBO0FDdkNOOztBRDRDQTtFQUNFLGFBQUE7QUN6Q0Y7O0FENENBO0VBQ0UsZUFBQTtBQ3pDRjtBRDJDRTtFQUNFLGtDQTdMa0I7QUNvSnRCO0FENENFO0VBQ0UsVUFBQTtFQUNBLGtDQWpNa0I7QUN1SnRCOztBRDhDQTtFQUNFLFdBMU1lO0FDK0pqQjs7QUQ4Q0E7RUFDRSxjQUFBO0FDM0NGOztBRGdERTtFQUNFLGdCQUFBO0FDN0NKO0FEZ0RFO0VBQ0UsZ0JBQUE7QUM5Q0o7QURpREU7RUFDRSxnQkFBQTtBQy9DSjtBRGtERTtFQUNFLGdCQUFBO0FDaERKO0FEbURFO0VBQ0UsZ0JBQUE7RUFDQSxZQUFBO0FDakRKO0FEb0RFO0VBQ0UsZ0JBQUE7QUNsREo7QURxREU7RUFDRSxnQkFBQTtBQ25ESjtBRHNERTtFQUNFLGdCQUFBO0FDcERKO0FEdURFO0VBQ0UsZ0JBQUE7QUNyREo7QUR3REU7RUFDRSxnQkFBQTtBQ3RESjs7QUQ2REU7O0VBQ0UsZ0JBQUE7RUFDQSxnQkFBQTtBQ3pESjtBRDRERTs7RUFDRSxnQkFBQTtFQUNBLGdCQUFBO0FDekRKO0FENERFOztFQUNFLGdCQUFBO0FDekRKO0FENERFOztFQUNFLGdCQUFBO0FDekRKO0FENERFOztFQUNFLGdCQUFBO0VBQ0EsWUFBQTtBQ3pESjtBRDRERTs7RUFDRSxnQkFBQTtBQ3pESjtBRDRERTs7RUFDRSxnQkFBQTtBQ3pESjtBRDRERTs7RUFDRSxnQkFBQTtBQ3pESjtBRDRERTs7RUFDRSxnQkFBQTtBQ3pESjtBRDRERTs7RUFDRSxnQkFBQTtBQ3pESjs7QUQ4REE7RUFDRSxjQUFBO0FDM0RGO0FENkRFO0VBQ0UsbUJBQUE7RUFDQSxlQUFBO0FDM0RKO0FEOERFO0VBQ0UsZ0JBQUE7QUM1REo7QUQrREU7RUFDRSxnQkFBQTtBQzdESiIsImZpbGUiOiJyZWFjdC1jaGVja2JveC10cmVlLmNzcyJ9 */

@@ -69,7 +69,9 @@ superset-websocket/config.json
 *.js.map
 node_modules
 npm-debug.log*
-superset/static/assets/.gitkeep
+superset/static/*
+superset/static/assets/*
+!superset/static/assets/.gitkeep
 superset/static/uploads/*
 !superset/static/uploads/.gitkeep
 yarn-error.log
