@@ -495,3 +495,9 @@ zstandard==0.23.0
 psycopg2-binary==2.9.12
 wheel==0.47.0
 gevent==24.10.1
+# LDAP authentication for Flask-AppBuilder
+flask-ldap3-login==1.0.2
+    # via -r requirements/base.in
+ldap3==2.9.1
+    # via flask-ldap3-login
+python-ldap==3.4.7

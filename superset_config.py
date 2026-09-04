@@ -301,3 +301,60 @@ THEME_DARK = {
 # ============================================================================
 FAVICONS = [{"href": "/static/assets/images/LogoPR_32х32.png"}]
 APP_ICON = "/static/assets/images/logo300x100.png"
+
+# ============================================================================
+# ВКЛЮЧЕНИЕ JINJA-ШАБЛОНОВ ДЛЯ SQL LAB
+# ============================================================================
+FEATURE_FLAGS = {
+    # Enable Jinja templating in SQL queries
+    "ENABLE_TEMPLATE_PROCESSING": True,
+}
+# ============================================================================
+# АУТЕНТИФИКАЦИЯ ЧЕРЕЗ LDAP (FreeIPA / 389-DS: ald.astra.test)
+# ============================================================================
+from flask_appbuilder.security.manager import AUTH_LDAP
+AUTH_TYPE = AUTH_LDAP
+# Сервер каталога
+AUTH_LDAP_SERVER = "ldap://192.168.71.96:389"
+# Bind-учётка (DN) и пароль
+AUTH_LDAP_BIND_USER = "uid=astrauser1,cn=users,cn=compat,dc=ald,dc=astra,dc=test"
+AUTH_LDAP_BIND_PASSWORD = "12345678"
+# База поиска пользователей
+AUTH_LDAP_SEARCH = "cn=accounts,dc=ald,dc=astra,dc=test"
+# Фильтр и поле логина (FreeIPA использует uid)
+AUTH_LDAP_SEARCH_FILTER = "(objectClass=posixAccount)"
+AUTH_LDAP_UID_FIELD = "uid"
+# Пользователь вводит логин без домена
+AUTH_LDAP_USERNAME_FORMAT = "%s"
+
+AUTH_USER_REGISTRATION = True            # без этого новый пользователь не создастся
+AUTH_USER_REGISTRATION_ROLE = "Gamma"    # дефолтная роль для нового юзера
+
+# Маппинг групп FreeIPA -> роли Superset (группы: cn=имя,cn=groups,cn=accounts,...)
+AUTH_ROLES_MAPPING = {
+    "cn=superset_admins,cn=groups,cn=accounts,dc=ald,dc=astra,dc=test": ["Admin"],
+    "cn=superset_users,cn=groups,cn=accounts,dc=ald,dc=astra,dc=test": ["Gamma"],
+}
+AUTH_ROLES_SYNC_AT_LOGIN = False
+
+# Отключаем/объявляем ReCaptcha, иначе логин-страница падает с KeyError
+RECAPTCHA_PUBLIC_KEY = ""
+RECAPTCHA_PRIVATE_KEY = ""
+RECAPTCHA_ENABLED = False
+
+# ============================================================================
+# ВХОД ОДНОВРЕМЕННО: ЛОКАЛЬНЫЕ ПОЛЬЗОВАТЕЛИ БД + ДОМЕННЫЕ (LDAP)
+# При неудачном LDAP пробуем локальную БД -> оба способа работают
+# ============================================================================
+from superset.security.manager import SupersetSecurityManager
+
+
+class LocalAndLdapSecurityManager(SupersetSecurityManager):
+    def auth_user_ldap(self, username, password):
+        user = self.auth_user_db(username, password)
+        if user:
+            return user
+        return super().auth_user_ldap(username, password)
+
+
+CUSTOM_SECURITY_MANAGER = LocalAndLdapSecurityManager
